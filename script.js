@@ -12,34 +12,61 @@
   const italian = window.PORTFOLIO_ITALIAN;
   const normalize = value => value.replace(/\s+/g, ' ').trim();
 
-  // Accessible, compact image galleries; arrows and keyboard both scroll one slide.
-  document.querySelectorAll('.project-gallery').forEach(gallery => {
-    gallery.tabIndex = 0;
-    const slides = [...gallery.querySelectorAll('.gallery-slide')];
-    const controls = document.createElement('div');
-    controls.className = 'gallery-controls';
-    const previous = document.createElement('button');
-    previous.type = 'button'; previous.textContent = '←'; previous.setAttribute('aria-label', 'Previous image');
-    const next = document.createElement('button');
-    next.type = 'button'; next.textContent = '→'; next.setAttribute('aria-label', 'Next image');
-    const count = document.createElement('span'); count.className = 'gallery-count';
-    controls.append(previous, count, next); gallery.after(controls);
-    const index = () => Math.max(0, Math.min(slides.length - 1, Math.round(gallery.scrollLeft / gallery.clientWidth)));
-    const update = () => {
-      const current = index(); count.textContent = String(current + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
-      previous.disabled = current === 0; next.disabled = current === slides.length - 1;
-    };
-    const move = step => gallery.scrollTo({ left: Math.max(0, Math.min(slides.length - 1, index() + step)) * gallery.clientWidth, behavior: reducedMotion.matches ? 'instant' : 'smooth' });
-    previous.addEventListener('click', () => move(-1)); next.addEventListener('click', () => move(1));
-    gallery.addEventListener('keydown', event => {
-      if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
-        event.preventDefault(); move(event.key === 'ArrowRight' ? 1 : -1);
-      }
-    });
-    gallery.addEventListener('scroll', update, { passive: true });
-    window.addEventListener('resize', () => { gallery.scrollTo({ left: 0, behavior: 'instant' }); update(); });
-    update();
+  const projects = [...document.querySelectorAll('.project-card')];
+  const projectDialog = document.getElementById('projectDialog');
+  let projectIndex = 0;
+  let returnFocus;
+  document.querySelectorAll('.home-name, .section-title').forEach(heading => {
+    const inner = document.createElement('span'); inner.className = 'kinetic-type';
+    while (heading.firstChild) inner.append(heading.firstChild);
+    heading.append(inner);
   });
+  projects.forEach((project, index) => {
+    const button = document.createElement('button');
+    button.type = 'button'; button.className = 'project-explore';
+    button.innerHTML = '<span>Explore project</span><span aria-hidden="true">↗</span>';
+    button.setAttribute('aria-haspopup', 'dialog');
+    project.querySelector('.project-card-inner').append(button);
+    project.addEventListener('click', event => {
+      if (event.target.closest('a')) return;
+      returnFocus = button; projectIndex = index; populateProject();
+      projectDialog.showModal(); document.body.classList.add('dialog-open');
+      projectDialog.querySelector('.dialog-close').focus();
+    });
+  });
+  function populateProject() {
+    const project = projects[projectIndex];
+    const content = projectDialog.querySelector('.dialog-content');
+    content.replaceChildren();
+    const title = document.createElement('h2'); title.id = 'dialogTitle';
+    title.textContent = project.querySelector('h4').textContent; content.append(title);
+    const type = project.querySelector('.project-type').cloneNode(true); content.append(type);
+    const description = document.createElement('div'); description.className = 'dialog-description';
+    project.querySelectorAll('.project-desc').forEach(p => description.append(p.cloneNode(true)));
+    content.append(description);
+    const gallery = project.querySelector('.project-gallery');
+    if (gallery) {
+      const images = gallery.cloneNode(true); images.removeAttribute('tabindex'); content.append(images);
+      images.querySelectorAll('img').forEach(image => {
+        image.loading = 'eager'; image.addEventListener('contextmenu', e => e.preventDefault());
+        image.addEventListener('dragstart', e => e.preventDefault());
+      });
+      images.addEventListener('contextmenu', e => e.preventDefault());
+    }
+    const link = project.querySelector('.project-link'); if (link) content.append(link.cloneNode(true));
+    projectDialog.scrollTop = 0;
+  }
+  function closeProject() { projectDialog.close(); }
+  projectDialog.querySelector('.dialog-close').addEventListener('click', closeProject);
+  projectDialog.addEventListener('click', event => {
+    if (event.target !== projectDialog) return;
+    const rect = projectDialog.getBoundingClientRect();
+    if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) closeProject();
+  });
+  projectDialog.addEventListener('close', () => { document.body.classList.remove('dialog-open'); returnFocus?.focus({ preventScroll: true }); });
+  projectDialog.querySelector('.previous-project').addEventListener('click', () => { projectIndex = (projectIndex + projects.length - 1) % projects.length; populateProject(); });
+  projectDialog.querySelector('.next-project').addEventListener('click', () => { projectIndex = (projectIndex + 1) % projects.length; populateProject(); });
+
   // Discourage casual saving only on images, leaving text and links usable.
   document.querySelectorAll('img').forEach(image => {
     image.draggable = false;
@@ -79,6 +106,14 @@
     nav.classList.toggle('scrolled', window.scrollY > 30);
     const length = document.documentElement.scrollHeight - window.innerHeight;
     document.querySelector('.reading-progress').style.transform = 'scaleX(' + (length > 0 ? window.scrollY / length : 0) + ')';
+    if (!reducedMotion.matches) {
+      document.querySelectorAll('.kinetic-type').forEach(text => {
+        const rect = text.parentElement.getBoundingClientRect();
+        if (rect.bottom < 0 || rect.top > innerHeight) return;
+        const proximity = Math.max(0, 1 - Math.abs(rect.top + rect.height / 2 - innerHeight * 0.45) / innerHeight);
+        text.style.setProperty('--type-scale', String(0.975 + proximity * 0.05));
+      });
+    }
     const current = sectionAtScroll();
     links.forEach(link => {
       const active = link.dataset.section === current.id;
@@ -110,6 +145,7 @@
       history.replaceState(null, '', url);
       window.scrollTo({ top: current.offsetTop + offset, behavior: 'instant' });
     }
+    if (projectDialog.open) populateProject();
     updateNavigation();
   }
   let savedLanguage;

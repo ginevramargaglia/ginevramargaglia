@@ -149,5 +149,10 @@ window.PORTFOLIO_ITALIAN = {
   "Based in Monaco · Creating across borders": "A Monaco · Creatività senza confini",
   "Back to the top": "Torna all’inizio",
   "Previous image": "Immagine precedente",
-  "Next image": "Immagine successiva"
+  "Next image": "Immagine successiva",
+  "Explore project": "Esplora il progetto",
+  "Project notes": "Note sul progetto",
+  "Close project": "Chiudi il progetto",
+  "Previous project": "Progetto precedente",
+  "Next project": "Progetto successivo"
 };

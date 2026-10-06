@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ginevra Margaglia</title>
   <link rel="stylesheet" href="style.css?v=f19449f158"/>
+  <link rel="stylesheet" href="editorial.css?v=8a3048f51f"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
@@ -483,7 +484,18 @@
 </section>
 
 </main>
-<script src="translations.js?v=ebb5090420"></script>
-<script src="script.js?v=43854786d6"></script>
+<dialog class="project-dialog" id="projectDialog" aria-labelledby="dialogTitle">
+  <div class="dialog-toolbar">
+    <span class="dialog-kicker">Project notes</span>
+    <button type="button" class="dialog-close" aria-label="Close project">×</button>
+  </div>
+  <div class="dialog-content"></div>
+  <div class="dialog-navigation">
+    <button type="button" class="previous-project">← <span>Previous project</span></button>
+    <button type="button" class="next-project"><span>Next project</span> →</button>
+  </div>
+</dialog>
+<script src="translations.js?v=13dedcf73b"></script>
+<script src="script.js?v=755d440677"></script>
 </body>
 </html> 
