@@ -252,3 +252,47 @@ summary:focus-visible { outline: 2px solid var(--blue); outline-offset: -4px; }
  .kinetic-type, .type-tap { scale: 1 !important; animation: none !important; }
  .timeline-chapter summary h4 { transform: none !important; }
 }
+
+/* Aligned signature and sewn linen project patches. */
+.home-name em { text-align: left; padding-top: .08em; }
+.project-card,
+[data-project="bookstagram"], [data-project="zerodue"], [data-project="illion"] {
+  padding: 2.3rem;
+  background: #EAE4D8 url('assets/design/linen-weave.svg') repeat;
+  border: 0;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(62,52,41,.12), 0 12px 28px rgba(62,52,41,.08), 0 0 0 3px rgba(234,228,216,.65);
+  isolation: isolate;
+}
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border: 2px dashed rgba(128,113,91,.42);
+  border-radius: 3px;
+  box-shadow: inset 0 1px 1px rgba(255,255,255,.7), 0 1px 1px rgba(255,255,255,.7);
+  pointer-events: none;
+  z-index: -1;
+}
+.project-card::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border: 4px solid transparent;
+  border-image: repeating-linear-gradient(97deg, rgba(234,228,216,.9) 0 2px, rgba(234,228,216,.2) 2px 4px) 4;
+  pointer-events: none;
+}
+.project-card:hover { background: #EAE4D8 url('assets/design/linen-weave.svg') repeat; }
+.project-explore { border-top-color: rgba(128,113,91,.32); }
+.project-gallery .gallery-slide { box-shadow: 0 4px 12px rgba(62,52,41,.13); }
+.project-number { color: var(--blue-dark); }
+@media (max-width: 768px) {
+ .project-card,
+ [data-project="bookstagram"], [data-project="zerodue"], [data-project="illion"] { padding: 1.65rem; }
+ .project-card::before { inset: 9px; border-width: 1.5px; }
+}
+@media (max-width: 480px) {
+ .project-card,
+ [data-project="bookstagram"], [data-project="zerodue"], [data-project="illion"] { padding: 1.4rem; }
+ .project-gallery { gap: .55rem; }
+}
