@@ -144,5 +144,10 @@ window.PORTFOLIO_ITALIAN = {
   "Lore reading platform concept showing its visual identity in a web interface": "Concept della piattaforma di lettura Lore con la sua identità visiva in un’interfaccia web",
   "Open navigation menu": "Apri il menu di navigazione",
   "Main navigation": "Navigazione principale",
-  "Section navigation": "Navigazione delle sezioni"
+  "Section navigation": "Navigazione delle sezioni",
+  "Explore my work ↗": "Scopri i miei progetti ↗",
+  "Based in Monaco · Creating across borders": "A Monaco · Creatività senza confini",
+  "Back to the top": "Torna all’inizio",
+  "Previous image": "Immagine precedente",
+  "Next image": "Immagine successiva"
 };

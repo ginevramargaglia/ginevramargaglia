@@ -12,6 +12,44 @@
   const italian = window.PORTFOLIO_ITALIAN;
   const normalize = value => value.replace(/\s+/g, ' ').trim();
 
+  // Accessible, compact image galleries; arrows and keyboard both scroll one slide.
+  document.querySelectorAll('.project-gallery').forEach(gallery => {
+    gallery.tabIndex = 0;
+    const slides = [...gallery.querySelectorAll('.gallery-slide')];
+    const controls = document.createElement('div');
+    controls.className = 'gallery-controls';
+    const previous = document.createElement('button');
+    previous.type = 'button'; previous.textContent = '←'; previous.setAttribute('aria-label', 'Previous image');
+    const next = document.createElement('button');
+    next.type = 'button'; next.textContent = '→'; next.setAttribute('aria-label', 'Next image');
+    const count = document.createElement('span'); count.className = 'gallery-count';
+    controls.append(previous, count, next); gallery.after(controls);
+    const index = () => Math.max(0, Math.min(slides.length - 1, Math.round(gallery.scrollLeft / gallery.clientWidth)));
+    const update = () => {
+      const current = index(); count.textContent = String(current + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
+      previous.disabled = current === 0; next.disabled = current === slides.length - 1;
+    };
+    const move = step => gallery.scrollTo({ left: Math.max(0, Math.min(slides.length - 1, index() + step)) * gallery.clientWidth, behavior: reducedMotion.matches ? 'instant' : 'smooth' });
+    previous.addEventListener('click', () => move(-1)); next.addEventListener('click', () => move(1));
+    gallery.addEventListener('keydown', event => {
+      if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+        event.preventDefault(); move(event.key === 'ArrowRight' ? 1 : -1);
+      }
+    });
+    gallery.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', () => { gallery.scrollTo({ left: 0, behavior: 'instant' }); update(); });
+    update();
+  });
+  // Discourage casual saving only on images, leaving text and links usable.
+  document.querySelectorAll('img').forEach(image => {
+    image.draggable = false;
+    image.addEventListener('contextmenu', event => event.preventDefault());
+    image.addEventListener('dragstart', event => event.preventDefault());
+  });
+  document.querySelectorAll('.protected-photo').forEach(photo => {
+    photo.addEventListener('contextmenu', event => event.preventDefault());
+  });
+
   // Cache original text nodes, retaining inline emphasis and all image/link elements.
   const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
     acceptNode(node) {
@@ -39,6 +77,8 @@
   }
   function updateNavigation() {
     nav.classList.toggle('scrolled', window.scrollY > 30);
+    const length = document.documentElement.scrollHeight - window.innerHeight;
+    document.querySelector('.reading-progress').style.transform = 'scaleX(' + (length > 0 ? window.scrollY / length : 0) + ')';
     const current = sectionAtScroll();
     links.forEach(link => {
       const active = link.dataset.section === current.id;
@@ -99,7 +139,7 @@
       heading.focus({ preventScroll: true });
     }
   }));
-  document.querySelector('.cta-btn').addEventListener('click', () => { window.location.hash = 'about'; });
+
   window.addEventListener('resize', () => {
     if (window.innerWidth > 1100) setMenu(false);
     updateNavigation();
@@ -125,20 +165,4 @@
   window.addEventListener('hashchange', updateNavigation);
   updateNavigation();
 
-  // Pointer animation is only used on devices with a precise pointer.
-  if (window.matchMedia('(pointer: fine)').matches && !reducedMotion.matches) {
-    const cursor = document.getElementById('cursor');
-    const dot = document.getElementById('cursorDot');
-    let mouseX = -100, mouseY = -100, x = -100, y = -100;
-    document.addEventListener('mousemove', event => {
-      mouseX = event.clientX; mouseY = event.clientY;
-      dot.style.left = mouseX + 'px'; dot.style.top = mouseY + 'px';
-    });
-    function animateCursor() {
-      x += (mouseX - x) * 0.12; y += (mouseY - y) * 0.12;
-      cursor.style.left = x + 'px'; cursor.style.top = y + 'px';
-      requestAnimationFrame(animateCursor);
-    }
-    animateCursor();
-  }
 })();

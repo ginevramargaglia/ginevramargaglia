@@ -4,11 +4,12 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ginevra Margaglia</title>
-  <link rel="stylesheet" href="style.css?v=4a08e6e9c1"/>
+  <link rel="stylesheet" href="style.css?v=f19449f158"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
+<div class="reading-progress" aria-hidden="true"></div>
 
 <!-- CURSOR -->
 <div class="cursor" id="cursor"></div>
@@ -16,7 +17,7 @@
 
 <!-- NAV -->
 <nav id="nav" aria-label="Main navigation">
-  <div class="nav-logo">GM</div>
+  <a class="nav-logo" href="#home" aria-label="Back to the top">GM<span class="logo-dot">.</span></a>
   <div class="nav-links">
     <a href="#home" class="nav-link" data-section="home">Home</a>
     <a href="#about" class="nav-link" data-section="about">About</a>
@@ -53,11 +54,16 @@
       <p class="home-eyebrow reveal-up">Communication · Events · Creative</p>
       <h1 class="home-name reveal-up delay-1">Ginevra<br/><em>Margaglia</em></h1>
       <p class="home-sub reveal-up delay-2">Circus artist turned strategist.<br/>A life built at the intersection of movement, meaning, and craft.</p>
-      <button class="cta-btn reveal-up delay-3" data-section="about">Discover the story ↓</button>
+      <div class="hero-actions reveal-up delay-3">
+        <a class="cta-btn" href="#portfolio">Explore my work ↗</a>
+        <a class="hero-secondary" href="#about">Discover the story ↓</a>
+      </div>
+      <p class="hero-location reveal-up delay-4">Based in Monaco · Creating across borders</p>
     </div>
     <div class="home-photo reveal-right delay-1">
-      <div class="photo-frame">
-        <img src="Ginevra_Photo.png" alt="Ginevra Margaglia" class="hero-img"/>
+      <div class="photo-frame protected-photo">
+        <img src="Ginevra_Photo.webp" alt="Ginevra Margaglia" class="hero-img" draggable="false"/>
+        <span class="photo-credit" aria-hidden="true">Ginevra Margaglia · Portfolio</span>
         <div class="photo-accent"></div>
       </div>
     </div>
@@ -72,7 +78,7 @@
 <!-- ═══════════════════════════════ ABOUT ═══════════════════════════════ -->
 <section class="page" id="about">
   <div class="section-inner about-inner">
-    <div class="section-label reveal-up">About</div>
+    <div class="section-label reveal-up" data-number="01">About</div>
     <div class="about-grid">
       <div class="about-left">
         <h2 class="section-title reveal-up">A life<br/>in motion.</h2>
@@ -109,7 +115,7 @@
 <section class="page" id="circus">
   <div class="circus-bg-word">AERIAL</div>
   <div class="section-inner circus-inner">
-    <div class="section-label reveal-up">Artistic Background</div>
+    <div class="section-label reveal-up" data-number="02">Artistic Background</div>
     <h2 class="section-title circus-title reveal-up">Eight years<br/><em>in the air.</em></h2>
     <div class="circus-grid">
       <div class="circus-left reveal-up delay-1">
@@ -158,27 +164,19 @@
     </div>
     <div class="circus-gallery" aria-label="Circus performance photographs">
       <figure class="circus-photo reveal-up">
-        <a href="assets/circus/circus-01.jpg" target="_blank" rel="noopener" aria-label="Open aerial rope performance photograph">
-          <img src="assets/circus/circus-01.jpg" alt="Aerial rope performance on a stage lit in pink and purple" width="520" height="590" loading="lazy"/>
-        </a>
+        <div class="gallery-slide protected-photo"><img src="assets/circus/circus-01.webp" alt="Aerial rope performance on a stage lit in pink and purple" width="520" height="590" loading="lazy" draggable="false"/><span class="photo-credit" aria-hidden="true">Ginevra Margaglia · Portfolio</span></div>
         <figcaption>Aerial rope · On stage</figcaption>
       </figure>
       <figure class="circus-photo reveal-up delay-1">
-        <a href="assets/circus/circus-05.jpg" target="_blank" rel="noopener" aria-label="Open aerial rope portrait">
-          <img src="assets/circus/circus-05.jpg" alt="Circus artist suspended on an aerial rope against a dark backdrop" width="405" height="455" loading="lazy"/>
-        </a>
+        <div class="gallery-slide protected-photo"><img src="assets/circus/circus-05.webp" alt="Circus artist suspended on an aerial rope against a dark backdrop" width="405" height="455" loading="lazy" draggable="false"/><span class="photo-credit" aria-hidden="true">Ginevra Margaglia · Portfolio</span></div>
         <figcaption>Strength &amp; expression</figcaption>
       </figure>
       <figure class="circus-photo reveal-up delay-2">
-        <a href="assets/circus/circus-02.jpg" target="_blank" rel="noopener" aria-label="Open partner acrobatics photograph">
-          <img src="assets/circus/circus-02.jpg" alt="Outdoor partner acrobatics, with one performer balancing above another before an audience" width="1414" height="2000" loading="lazy"/>
-        </a>
+        <div class="gallery-slide protected-photo"><img src="assets/circus/circus-02.webp" alt="Outdoor partner acrobatics, with one performer balancing above another before an audience" width="1414" height="2000" loading="lazy" draggable="false"/><span class="photo-credit" aria-hidden="true">Ginevra Margaglia · Portfolio</span></div>
         <figcaption>Balance · Trust · Connection</figcaption>
       </figure>
       <figure class="circus-photo circus-photo-ensemble reveal-up">
-        <a href="assets/circus/circus-03.jpg" target="_blank" rel="noopener" aria-label="Open ensemble performance photograph">
-          <img src="assets/circus/circus-03.jpg" alt="Circus ensemble in white shirts holding roses during a performance" width="800" height="560" loading="lazy"/>
-        </a>
+        <div class="gallery-slide protected-photo"><img src="assets/circus/circus-03.webp" alt="Circus ensemble in white shirts holding roses during a performance" width="800" height="560" loading="lazy" draggable="false"/><span class="photo-credit" aria-hidden="true">Ginevra Margaglia · Portfolio</span></div>
         <figcaption>The ensemble · A shared presence</figcaption>
       </figure>
     </div>
@@ -191,7 +189,7 @@
 <!-- ═══════════════════════════════ JOURNEY ═══════════════════════════════ -->
 <section class="page" id="journey">
   <div class="section-inner journey-inner">
-    <div class="section-label reveal-up">Journey</div>
+    <div class="section-label reveal-up" data-number="03">Journey</div>
     <h2 class="section-title reveal-up">The chapters<br/><em>so far.</em></h2>
     <div class="timeline">
       <div class="tl-item reveal-up delay-1">
@@ -265,7 +263,7 @@
 <!-- ═══════════════════════════════ PORTFOLIO ═══════════════════════════════ -->
 <section class="page" id="portfolio">
   <div class="section-inner portfolio-inner">
-    <div class="section-label reveal-up">Selected Work</div>
+    <div class="section-label reveal-up" data-number="04">Selected Work</div>
     <h2 class="section-title reveal-up">Projects &<br/><em>Collaborations</em></h2>
     <div class="portfolio-grid">
 
@@ -276,9 +274,9 @@
             <h4>SEN Monaco</h4>
             <p class="project-type">Social Media · Content · Community</p>
             <div class="project-gallery sen-gallery" aria-label="SEN Monaco photographs">
-              <a class="" href="assets/sen/entrance.webp" target="_blank" rel="noopener"><img src="assets/sen/entrance.webp" alt="SEN Monaco entrance with its logo displayed on light fabric curtains" loading="lazy" width="1067" height="1600"/></a>
-              <a class="" href="assets/sen/preparation.webp" target="_blank" rel="noopener"><img src="assets/sen/preparation.webp" alt="Chef preparing a dish at SEN Monaco" loading="lazy" width="1067" height="1600"/></a>
-              <a class="sen-restaurant" href="assets/sen/restaurant.webp" target="_blank" rel="noopener"><img src="assets/sen/restaurant.webp" alt="SEN Monaco restaurant interior with counter seating and a chef at work" loading="lazy" width="1600" height="1067"/></a>
+              <div class="gallery-slide protected-photo"><img src="assets/sen/entrance.webp" alt="SEN Monaco entrance with its logo displayed on light fabric curtains" loading="lazy" width="1067" height="1600" draggable="false"/><span class="photo-credit" aria-hidden="true">Ginevra Margaglia · Portfolio</span></div>
+              <div class="gallery-slide protected-photo"><img src="assets/sen/preparation.webp" alt="Chef preparing a dish at SEN Monaco" loading="lazy" width="1067" height="1600" draggable="false"/><span class="photo-credit" aria-hidden="true">Ginevra Margaglia · Portfolio</span></div>
+              <div class="gallery-slide protected-photo"><img src="assets/sen/restaurant.webp" alt="SEN Monaco restaurant interior with counter seating and a chef at work" loading="lazy" width="1600" height="1067" draggable="false"/><span class="photo-credit" aria-hidden="true">Ginevra Margaglia · Portfolio</span></div>
             </div>
             <p class="project-desc">Creative content and community building for SEN Monaco, a contemporary platform with a strong visual identity.</p>
           </div>
@@ -295,9 +293,9 @@
             <h4>IUM Art Society</h4>
             <p class="project-type">Direction · Curation · Community</p>
             <div class="project-gallery art-society-gallery" aria-label="IUM Art Society event photographs">
-              <a href="assets/art-society/art-society-01.jpg" target="_blank" rel="noopener"><img src="assets/art-society/art-society-01.jpg" alt="Group portrait at an IUM Art Society gathering" loading="lazy" width="4467" height="2978"/></a>
-              <a href="assets/art-society/art-society-02.jpg" target="_blank" rel="noopener"><img src="assets/art-society/art-society-02.jpg" alt="Speakers addressing guests at an IUM Art Society event" loading="lazy" width="5472" height="3648"/></a>
-              <a class="art-society-portrait" href="assets/art-society/art-society-03.jpg" target="_blank" rel="noopener"><img src="assets/art-society/art-society-03.jpg" alt="Black and white portrait beside an artwork at an exhibition" loading="lazy" width="3648" height="5472"/></a>
+              <div class="gallery-slide protected-photo"><img src="assets/art-society/art-society-01.webp" alt="Group portrait at an IUM Art Society gathering" loading="lazy" width="4467" height="2978" draggable="false"/><span class="photo-credit" aria-hidden="true">Ginevra Margaglia · Portfolio</span></div>
+              <div class="gallery-slide protected-photo"><img src="assets/art-society/art-society-02.webp" alt="Speakers addressing guests at an IUM Art Society event" loading="lazy" width="5472" height="3648" draggable="false"/><span class="photo-credit" aria-hidden="true">Ginevra Margaglia · Portfolio</span></div>
+              <div class="gallery-slide protected-photo"><img src="assets/art-society/art-society-03.webp" alt="Black and white portrait beside an artwork at an exhibition" loading="lazy" width="3648" height="5472" draggable="false"/><span class="photo-credit" aria-hidden="true">Ginevra Margaglia · Portfolio</span></div>
             </div>
             <p class="project-desc">As President, I reshaped the IUM Art Society into an active creative space — exhibitions, collaborations, and a platform for emerging voices on campus.</p>
           </div>
@@ -314,10 +312,10 @@
             <h4>Lore</h4>
             <p class="project-type">Founder · Strategy · Product</p>
             <div class="project-gallery" aria-label="Lore visual identity">
-              <a href="assets/lore/brand.webp" target="_blank" rel="noopener"><img src="assets/lore/brand.webp" alt="Lore brand introduction with the tagline The books that made you" loading="lazy" width="1100" height="619"/></a>
-              <a href="assets/lore/logo.webp" target="_blank" rel="noopener"><img src="assets/lore/logo.webp" alt="Lore logo, wordmark, and app icon variations" loading="lazy" width="1100" height="619"/></a>
-              <a href="assets/lore/social.webp" target="_blank" rel="noopener"><img src="assets/lore/social.webp" alt="Lore social media designs in forest green, blue, and cream" loading="lazy" width="1100" height="619"/></a>
-              <a href="assets/lore/product.webp" target="_blank" rel="noopener"><img src="assets/lore/product.webp" alt="Lore reading platform concept showing its visual identity in a web interface" loading="lazy" width="1100" height="619"/></a>
+              <div class="gallery-slide protected-photo"><img src="assets/lore/brand.webp" alt="Lore brand introduction with the tagline The books that made you" loading="lazy" width="1100" height="619" draggable="false"/><span class="photo-credit" aria-hidden="true">Ginevra Margaglia · Portfolio</span></div>
+              <div class="gallery-slide protected-photo"><img src="assets/lore/logo.webp" alt="Lore logo, wordmark, and app icon variations" loading="lazy" width="1100" height="619" draggable="false"/><span class="photo-credit" aria-hidden="true">Ginevra Margaglia · Portfolio</span></div>
+              <div class="gallery-slide protected-photo"><img src="assets/lore/social.webp" alt="Lore social media designs in forest green, blue, and cream" loading="lazy" width="1100" height="619" draggable="false"/><span class="photo-credit" aria-hidden="true">Ginevra Margaglia · Portfolio</span></div>
+              <div class="gallery-slide protected-photo"><img src="assets/lore/product.webp" alt="Lore reading platform concept showing its visual identity in a web interface" loading="lazy" width="1100" height="619" draggable="false"/><span class="photo-credit" aria-hidden="true">Ginevra Margaglia · Portfolio</span></div>
             </div>
             <p class="project-desc">A social reading platform for Gen Z and millennial readers. My Honours capstone, a full entrepreneurial plan spanning product design, financial modelling, brand identity, and go-to-market strategy.</p>
           </div>
@@ -374,7 +372,7 @@
 <!-- ═══════════════════════════════ CV ═══════════════════════════════ -->
 <section class="page" id="cv">
   <div class="section-inner cv-inner">
-    <div class="section-label reveal-up">Curriculum Vitae</div>
+    <div class="section-label reveal-up" data-number="05">Curriculum Vitae</div>
     <div class="cv-header reveal-up">
       <h2 class="section-title">Experience &<br/><em>Education</em></h2>
       <a class="cv-download" href="Ginevra_Margaglia_CV.pdf" download>Download CV ↓</a>
@@ -460,7 +458,7 @@
 <!-- ═══════════════════════════════ CONTACT ═══════════════════════════════ -->
 <section class="page" id="contact">
   <div class="section-inner contact-inner">
-    <div class="section-label reveal-up">Contact</div>
+    <div class="section-label reveal-up" data-number="06">Contact</div>
     <h2 class="section-title contact-title reveal-up">Let's create<br/><em>something.</em></h2>
     <p class="contact-sub reveal-up delay-1">I'm open to editorial internships, creative collaborations, events, and conversations worth having.</p>
     <div class="contact-grid reveal-up delay-2">
@@ -485,7 +483,7 @@
 </section>
 
 </main>
-<script src="translations.js?v=867340e22e"></script>
-<script src="script.js?v=7afd4a1b60"></script>
+<script src="translations.js?v=ebb5090420"></script>
+<script src="script.js?v=43854786d6"></script>
 </body>
 </html> 
