@@ -116,7 +116,7 @@ window.PORTFOLIO_ITALIAN = {
   "Inside LVMH Certificate | Cambridge C1 Advanced | Excel 2021 Essential–Advanced": "Certificato Inside LVMH | Cambridge C1 Advanced | Excel 2021 Essential–Advanced",
   "Let's create": "Creiamo",
   "something.": "qualcosa.",
-  "I'm open to editorial internships, creative collaborations, events, and conversations worth having.": "Sono aperta a tirocini editoriali, collaborazioni creative, eventi e conversazioni che meritano di essere vissute.",
+  "Let’s collaborate on creative projects, brand identities, digital experiences, and events.": "Collaboriamo a progetti creativi, identità di marca, esperienze digitali ed eventi.",
   "Instagram — Books": "Instagram — Libri",
   "Monaco · Italy · London — wherever the work takes me.": "Monaco · Italia · Londra — ovunque mi porti il lavoro.",
   "TOUCH": "CONTATTO",
