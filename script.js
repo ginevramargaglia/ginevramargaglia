@@ -77,6 +77,29 @@
     photo.addEventListener('contextmenu', event => event.preventDefault());
   });
 
+  // Native expandable chapters remain keyboard accessible and keep all copy available.
+  document.querySelectorAll('.tl-item').forEach((item, index, items) => {
+    const details = document.createElement('details'); details.className = 'timeline-chapter';
+    const summary = document.createElement('summary');
+    const year = item.querySelector('.tl-year');
+    const heading = item.querySelector('h4');
+    summary.append(year, heading);
+    const indicator = document.createElement('span'); indicator.className = 'chapter-indicator';
+    indicator.setAttribute('aria-hidden', 'true'); summary.append(indicator);
+    const body = document.createElement('div'); body.className = 'chapter-body';
+    item.querySelectorAll('.tl-content p').forEach(p => body.append(p));
+    details.append(summary, body); details.open = index === items.length - 1;
+    item.replaceChildren(details);
+    details.addEventListener('toggle', () => requestAnimationFrame(updateNavigation));
+  });
+  document.querySelectorAll('.kinetic-type').forEach(text => {
+    text.addEventListener('pointerdown', () => {
+      if (reducedMotion.matches) return;
+      text.classList.remove('type-tap'); void text.offsetWidth; text.classList.add('type-tap');
+    });
+    text.addEventListener('animationend', () => text.classList.remove('type-tap'));
+  });
+
   // Cache original text nodes, retaining inline emphasis and all image/link elements.
   const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
     acceptNode(node) {
@@ -111,7 +134,7 @@
         const rect = text.parentElement.getBoundingClientRect();
         if (rect.bottom < 0 || rect.top > innerHeight) return;
         const proximity = Math.max(0, 1 - Math.abs(rect.top + rect.height / 2 - innerHeight * 0.45) / innerHeight);
-        text.style.setProperty('--type-scale', String(0.975 + proximity * 0.05));
+        text.style.setProperty('--type-scale', String(innerWidth <= 768 ? 0.96 + proximity * 0.075 : 0.91 + proximity * 0.165));
       });
     }
     const current = sectionAtScroll();

@@ -177,3 +177,78 @@ button:focus-visible, .project-explore:focus-visible { outline: 2px solid var(--
  .kinetic-type { max-width: 100%; }
  .dialog-content h2, .project-info h4 { overflow-wrap: anywhere; }
 }
+
+/* Woven panels, quiet blue ink and a more expressive reading rhythm. */
+:root { --blue: #536F89; --blue-dark: #344E65; --blue-pale: #A6BACB; --slate: #5E7485; }
+main { overflow-x: clip; }
+#home, #cv { background: #F5F2EA url('assets/design/soft-paper.svg') repeat; }
+#about { background: #E5E1D7 url('assets/design/linen-weave.svg') repeat; }
+#portfolio { background: #ECE9E1 url('assets/design/soft-paper.svg') repeat; }
+#journey { background: #F5F2EA; }
+#circus { background: #344E65; }
+#contact { background: #435F74 url('assets/design/linen-weave.svg') repeat; background-blend-mode: multiply; }
+.project-dialog { background-color: #F5F2EA; background-image: url('assets/design/soft-paper.svg'); background-blend-mode: normal; }
+.home-name .kinetic-type { display: block; }
+.home-name em { display: block; text-align: right; font-size: .9em; padding-top: .08em; }
+.home-name br { display: none; }
+.home-sub { margin-left: 2.4rem; }
+.hero-location { text-align: right; max-width: 460px; }
+.about-left .section-title { text-align: right; }
+.about-divider { margin-left: auto; }
+.about-right .about-body:nth-child(2) { padding-left: 2.4rem; }
+.about-right .about-body:nth-child(4) { max-width: 470px; margin-left: auto; font-style: italic; font-size: 1.3rem; color: var(--blue-dark); }
+#journey .section-title { text-align: center; margin-bottom: 4rem; }
+#journey .section-title .kinetic-type { transform-origin: center; }
+#portfolio .section-title { max-width: 780px; margin-left: auto; text-align: right; }
+#portfolio .section-title .kinetic-type { transform-origin: right; }
+#contact .section-title { text-align: right; }
+#contact .section-title .kinetic-type { transform-origin: right; }
+.contact-sub { margin-left: 2.5rem; }
+.contact-grid { margin-left: auto; }
+.timeline { max-width: 100%; padding: 0; margin: 0; }
+.timeline::before, .tl-item::before { display: none; }
+.tl-item { display: block; padding: 0; border-top: 1px solid rgba(52,78,101,.23); }
+.tl-item:last-child { border-bottom: 1px solid rgba(52,78,101,.23); }
+.timeline-chapter summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 130px 1fr 32px; align-items: center; gap: 1.5rem; padding: 1.8rem 1rem; }
+.timeline-chapter summary::-webkit-details-marker { display: none; }
+.timeline-chapter .tl-year { color: var(--blue); font-size: .62rem; letter-spacing: .07em; padding-top: 0; }
+.timeline-chapter h4 { font-family: var(--serif); font-size: clamp(1.35rem,2.3vw,2rem); font-weight: 400; line-height: 1.2; color: var(--ink); transform-origin: left center; transition: transform .3s, color .3s; }
+.tl-item:nth-child(even) summary { padding-left: 3rem; }
+.timeline-chapter[open] { background: #E5E1D7 url('assets/design/linen-weave.svg'); box-shadow: inset 0 1px 0 #FFFFFF70; }
+.timeline-chapter[open] h4 { color: var(--blue-dark); }
+.chapter-indicator { width: 28px; height: 28px; position: relative; border: 1px solid rgba(52,78,101,.25); border-radius: 50%; }
+.chapter-indicator::before, .chapter-indicator::after { content: ''; position: absolute; width: 10px; height: 1px; background: var(--blue-dark); left: 8px; top: 13px; }
+.chapter-indicator::after { transform: rotate(90deg); transition: transform .25s; }
+.timeline-chapter[open] .chapter-indicator::after { transform: rotate(0); }
+.chapter-body { padding: 0 4rem 2rem calc(130px + 2.5rem); max-width: 950px; }
+.chapter-body p { font-family: var(--sans); color: var(--ink-soft); font-size: .82rem; line-height: 1.95; }
+.chapter-body p + p { margin-top: 1rem; }
+summary:focus-visible { outline: 2px solid var(--blue); outline-offset: -4px; }
+.kinetic-type { transition: scale .3s; }
+@keyframes typeTouch { 0%,100% { scale: 1; } 45% { scale: 1.035; } }
+.type-tap { animation: typeTouch .5s ease-out; }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+ .kinetic-type:hover { scale: 1.025; }
+ .timeline-chapter summary:hover h4 { transform: scale(1.025); color: var(--blue); }
+}
+@media (max-width: 768px) {
+ .home-sub { margin-left: 0; }
+ .hero-location { text-align: left; }
+ .about-left .section-title { text-align: left; }
+ .about-divider { margin-left: 0; }
+ .about-right .about-body:nth-child(2) { padding-left: 1rem; }
+ #journey .section-title { text-align: left; }
+ #journey .section-title .kinetic-type { transform-origin: left; }
+ #portfolio .section-title { text-align: right; }
+ .timeline-chapter summary { grid-template-columns: 1fr 28px; gap: .65rem 1rem; padding: 1.4rem .75rem; }
+ .timeline-chapter .tl-year { grid-column: 1; }
+ .timeline-chapter h4 { grid-column: 1; font-size: 1.45rem; }
+ .chapter-indicator { grid-column: 2; grid-row: 1 / 3; }
+ .tl-item:nth-child(even) summary { padding-left: 1.25rem; }
+ .chapter-body { padding: 0 1.25rem 1.5rem; }
+ .contact-sub { margin-left: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+ .kinetic-type, .type-tap { scale: 1 !important; animation: none !important; }
+ .timeline-chapter summary h4 { transform: none !important; }
+}
