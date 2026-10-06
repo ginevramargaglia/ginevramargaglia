@@ -15,35 +15,39 @@
 <div class="cursor-dot" id="cursorDot"></div>
 
 <!-- NAV -->
-<nav id="nav">
+<nav id="nav" aria-label="Main navigation">
   <div class="nav-logo">GM</div>
   <div class="nav-links">
-    <a href="#" class="nav-link" data-section="home">Home</a>
-    <a href="#" class="nav-link" data-section="about">About</a>
-    <a href="#" class="nav-link" data-section="circus">Artistic</a>
-    <a href="#" class="nav-link" data-section="journey">Journey</a>
-    <a href="#" class="nav-link" data-section="portfolio">Work</a>
-    <a href="#" class="nav-link" data-section="cv">CV</a>
-    <a href="#" class="nav-link" data-section="contact">Contact</a>
+    <a href="#home" class="nav-link" data-section="home">Home</a>
+    <a href="#about" class="nav-link" data-section="about">About</a>
+    <a href="#circus" class="nav-link" data-section="circus">Artistic</a>
+    <a href="#journey" class="nav-link" data-section="journey">Journey</a>
+    <a href="#portfolio" class="nav-link" data-section="portfolio">Work</a>
+    <a href="#cv" class="nav-link" data-section="cv">CV</a>
+    <a href="#contact" class="nav-link" data-section="contact">Contact</a>
   </div>
-  <div class="nav-burger" id="navBurger">
-    <span></span><span></span><span></span>
+  <div class="nav-actions">
+    <button class="language-toggle" id="languageToggle" type="button" lang="it" aria-label="Read the portfolio in Italian">Italiano</button>
+    <button class="nav-burger" id="navBurger" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
 <!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#" class="mobile-link" data-section="home">Home</a>
-  <a href="#" class="mobile-link" data-section="about">About</a>
-  <a href="#" class="mobile-link" data-section="circus">Artistic Background</a>
-  <a href="#" class="mobile-link" data-section="journey">Journey</a>
-  <a href="#" class="mobile-link" data-section="portfolio">Work</a>
-  <a href="#" class="mobile-link" data-section="cv">CV</a>
-  <a href="#" class="mobile-link" data-section="contact">Contact</a>
+<div class="mobile-menu" id="mobileMenu" aria-label="Section navigation" inert>
+  <a href="#home" class="mobile-link" data-section="home">Home</a>
+  <a href="#about" class="mobile-link" data-section="about">About</a>
+  <a href="#circus" class="mobile-link" data-section="circus">Artistic Background</a>
+  <a href="#journey" class="mobile-link" data-section="journey">Journey</a>
+  <a href="#portfolio" class="mobile-link" data-section="portfolio">Work</a>
+  <a href="#cv" class="mobile-link" data-section="cv">CV</a>
+  <a href="#contact" class="mobile-link" data-section="contact">Contact</a>
 </div>
 
 <!-- ═══════════════════════════════ HOME ═══════════════════════════════ -->
-<section class="page active" id="home">
+<main>
+<section class="page" id="home">
   <div class="home-inner">
     <div class="home-text">
       <p class="home-eyebrow reveal-up">Communication · Events · Creative</p>
@@ -82,7 +86,7 @@
           At nineteen, I packed my bags and moved to London for six months, alone, curious, and fully alive to the world. I worked as an au pair for three beautiful children, and in doing so I learned something no curriculum could teach: how to hold space for others, how to adapt, how to be present. That season started my desire to travel and experience the world.
         </p>
         <p class="about-body reveal-up delay-3">
-          Today I am a final-year Honours student at the International University of Monaco, specialising in Communication and Events Management. I work in luxury digital marketing, manage social media communities, and build brands. I am also working on Lore, a social reading platform for the next generation of readers, a project that brings together technology, culture, and community in equal measure.
+          Today I am a final-year Honours student at the International University of Monaco, specialising in Communication and Events Management. I am a Digital Executive and Project Manager at CLS Monaco, working across digital communications and project management. Alongside this, I build visual identities, social media strategies, and websites for brands. I am also working on Lore, a social reading platform for the next generation of readers, a project that brings together technology, culture, and community in equal measure.
         </p>
         <p class="about-body reveal-up delay-4">
           What connects everything I do: an obsession with how stories are told, and who gets to tell them.
@@ -152,6 +156,32 @@
         </div>
       </div>
     </div>
+    <div class="circus-gallery" aria-label="Circus performance photographs">
+      <figure class="circus-photo reveal-up">
+        <a href="assets/circus/circus-01.jpg" target="_blank" rel="noopener" aria-label="Open aerial rope performance photograph">
+          <img src="assets/circus/circus-01.jpg" alt="Aerial rope performance on a stage lit in pink and purple" width="520" height="590" loading="lazy"/>
+        </a>
+        <figcaption>Aerial rope · On stage</figcaption>
+      </figure>
+      <figure class="circus-photo reveal-up delay-1">
+        <a href="assets/circus/circus-05.jpg" target="_blank" rel="noopener" aria-label="Open aerial rope portrait">
+          <img src="assets/circus/circus-05.jpg" alt="Circus artist suspended on an aerial rope against a dark backdrop" width="405" height="455" loading="lazy"/>
+        </a>
+        <figcaption>Strength &amp; expression</figcaption>
+      </figure>
+      <figure class="circus-photo reveal-up delay-2">
+        <a href="assets/circus/circus-02.jpg" target="_blank" rel="noopener" aria-label="Open partner acrobatics photograph">
+          <img src="assets/circus/circus-02.jpg" alt="Outdoor partner acrobatics, with one performer balancing above another before an audience" width="1414" height="2000" loading="lazy"/>
+        </a>
+        <figcaption>Balance · Trust · Connection</figcaption>
+      </figure>
+      <figure class="circus-photo circus-photo-ensemble reveal-up">
+        <a href="assets/circus/circus-03.jpg" target="_blank" rel="noopener" aria-label="Open ensemble performance photograph">
+          <img src="assets/circus/circus-03.jpg" alt="Circus ensemble in white shirts holding roses during a performance" width="800" height="560" loading="lazy"/>
+        </a>
+        <figcaption>The ensemble · A shared presence</figcaption>
+      </figure>
+    </div>
     <div class="circus-quote reveal-up delay-3">
       <blockquote>"The body remembers what the mind forgets."</blockquote>
     </div>
@@ -214,10 +244,18 @@
         </div>
       </div>
       <div class="tl-item reveal-up delay-5">
-        <div class="tl-year">2026–</div>
+        <div class="tl-year">2026</div>
         <div class="tl-content">
           <h4>Digital Marketing Specialist — The Agency, Monaco</h4>
-          <p>Digital communications and CRM for Ultra-High-Net-Worth Individuals across yachting, real estate, private aviation, and private investment. Integrated campaigns, content strategy, brand positioning at the highest register.</p>
+          <p>Previously managed digital communications and CRM for Ultra-High-Net-Worth Individuals across yachting, real estate, private aviation, and private investment, with a focus on integrated campaigns, content strategy, and brand positioning.</p>
+        </div>
+      </div>
+      <div class="tl-item reveal-up delay-5">
+        <div class="tl-year">Present</div>
+        <div class="tl-content">
+          <h4>Digital Executive &amp; Project Manager — CLS Monaco</h4>
+          <p>Contribute to event production, creative concepts and brand communication at CLS Monaco. Develop client presentations, brochures and digital content, alongside supplier coordination and business development for events and hospitality projects.</p>
+          <p><strong>Areas of contribution:</strong> Creative direction · Brand and digital communication · Presentation design · Event coordination · Supplier sourcing · Business development</p>
         </div>
       </div>
     </div>
@@ -237,6 +275,11 @@
           <div class="project-info">
             <h4>SEN Monaco</h4>
             <p class="project-type">Social Media · Content · Community</p>
+            <div class="project-gallery sen-gallery" aria-label="SEN Monaco photographs">
+              <a class="" href="assets/sen/entrance.webp" target="_blank" rel="noopener"><img src="assets/sen/entrance.webp" alt="SEN Monaco entrance with its logo displayed on light fabric curtains" loading="lazy" width="1067" height="1600"/></a>
+              <a class="" href="assets/sen/preparation.webp" target="_blank" rel="noopener"><img src="assets/sen/preparation.webp" alt="Chef preparing a dish at SEN Monaco" loading="lazy" width="1067" height="1600"/></a>
+              <a class="sen-restaurant" href="assets/sen/restaurant.webp" target="_blank" rel="noopener"><img src="assets/sen/restaurant.webp" alt="SEN Monaco restaurant interior with counter seating and a chef at work" loading="lazy" width="1600" height="1067"/></a>
+            </div>
             <p class="project-desc">Creative content and community building for SEN Monaco, a contemporary platform with a strong visual identity.</p>
           </div>
           <div class="project-link">
@@ -251,6 +294,11 @@
           <div class="project-info">
             <h4>IUM Art Society</h4>
             <p class="project-type">Direction · Curation · Community</p>
+            <div class="project-gallery art-society-gallery" aria-label="IUM Art Society event photographs">
+              <a href="assets/art-society/art-society-01.jpg" target="_blank" rel="noopener"><img src="assets/art-society/art-society-01.jpg" alt="Group portrait at an IUM Art Society gathering" loading="lazy" width="4467" height="2978"/></a>
+              <a href="assets/art-society/art-society-02.jpg" target="_blank" rel="noopener"><img src="assets/art-society/art-society-02.jpg" alt="Speakers addressing guests at an IUM Art Society event" loading="lazy" width="5472" height="3648"/></a>
+              <a class="art-society-portrait" href="assets/art-society/art-society-03.jpg" target="_blank" rel="noopener"><img src="assets/art-society/art-society-03.jpg" alt="Black and white portrait beside an artwork at an exhibition" loading="lazy" width="3648" height="5472"/></a>
+            </div>
             <p class="project-desc">As President, I reshaped the IUM Art Society into an active creative space — exhibitions, collaborations, and a platform for emerging voices on campus.</p>
           </div>
           <div class="project-link">
@@ -265,10 +313,17 @@
           <div class="project-info">
             <h4>Lore</h4>
             <p class="project-type">Founder · Strategy · Product</p>
+            <div class="project-gallery" aria-label="Lore visual identity">
+              <a href="assets/lore/brand.webp" target="_blank" rel="noopener"><img src="assets/lore/brand.webp" alt="Lore brand introduction with the tagline The books that made you" loading="lazy" width="1100" height="619"/></a>
+              <a href="assets/lore/logo.webp" target="_blank" rel="noopener"><img src="assets/lore/logo.webp" alt="Lore logo, wordmark, and app icon variations" loading="lazy" width="1100" height="619"/></a>
+              <a href="assets/lore/social.webp" target="_blank" rel="noopener"><img src="assets/lore/social.webp" alt="Lore social media designs in forest green, blue, and cream" loading="lazy" width="1100" height="619"/></a>
+              <a href="assets/lore/product.webp" target="_blank" rel="noopener"><img src="assets/lore/product.webp" alt="Lore reading platform concept showing its visual identity in a web interface" loading="lazy" width="1100" height="619"/></a>
+            </div>
             <p class="project-desc">A social reading platform for Gen Z and millennial readers. My Honours capstone, a full entrepreneurial plan spanning product design, financial modelling, brand identity, and go-to-market strategy.</p>
           </div>
           <div class="project-link">
             <span class="project-tag">Capstone Project</span>
+            <a class="project-deck-link" href="assets/lore/Lore_Visual_Identity.pdf" target="_blank" rel="noopener">Explore the visual identity ↗</a>
           </div>
         </div>
       </div>
@@ -287,14 +342,28 @@
         </div>
       </div>
 
-      <div class="project-card project-card-coming reveal-up delay-5">
+      <div class="project-card reveal-up delay-5" data-project="zerodue">
         <div class="project-card-inner">
-          <div class="project-number">+</div>
+          <div class="project-number">05</div>
           <div class="project-info">
-            <h4>More Coming</h4>
-            <p class="project-type">In Progress</p>
-            <p class="project-desc">New projects and collaborations always in motion. Check back.</p>
+            <h4>Zerodue Studio</h4>
+            <p class="project-type">Visual Identity · Social Media · Website</p>
+            <p class="project-desc">Created the brand’s visual identity. Currently developing its social media presence and website, bringing the identity to life across digital touchpoints.</p>
           </div>
+          <div class="project-link"><span class="project-tag">In Progress</span></div>
+        </div>
+      </div>
+
+      <div class="project-card reveal-up delay-5" data-project="illion">
+        <div class="project-card-inner">
+          <div class="project-number">06</div>
+          <div class="project-info">
+            <h4>Illion Design — Visual Identity &amp; Website</h4>
+            <p class="project-type">2024 · Visual Identity · Website</p>
+            <p class="project-desc">Developed the visual identity and website for an architectural lighting and stretch ceiling studio, translating its technical expertise into a clear visual presence through logo design, brand materials and project-led storytelling. I am now optimizing the website for SEO.</p>
+            <p class="project-desc"><strong>Areas of contribution:</strong> Visual identity · Web design · Brand communication · Presentation design</p>
+          </div>
+          <div class="project-link"><span class="project-tag">SEO Optimization in Progress</span></div>
         </div>
       </div>
 
@@ -315,7 +384,14 @@
       <div class="cv-col">
         <h3 class="cv-col-title reveal-up">Experience</h3>
         <div class="cv-entry reveal-up delay-1">
-          <div class="cv-meta">2026 — Present</div>
+          <div class="cv-meta">Present</div>
+          <h4>Digital Executive &amp; Project Manager</h4>
+          <p class="cv-company">CLS Monaco</p>
+          <p>Contribute to event production, creative concepts and brand communication at CLS Monaco. Develop client presentations, brochures and digital content, alongside supplier coordination and business development for events and hospitality projects.</p>
+          <p><strong>Areas of contribution:</strong> Creative direction · Brand and digital communication · Presentation design · Event coordination · Supplier sourcing · Business development</p>
+        </div>
+        <div class="cv-entry reveal-up delay-2">
+          <div class="cv-meta">2026</div>
           <h4>Digital Marketing & Client Relations Specialist</h4>
           <p class="cv-company">The Agency, Monaco</p>
           <p>Digital communication and CRM for UHNWI clients across luxury verticals: yachting, real estate, private aviation, private investment.</p>
@@ -408,6 +484,8 @@
   <div class="contact-bg-text">TOUCH</div>
 </section>
 
+</main>
+<script src="translations.js"></script>
 <script src="script.js"></script>
 </body>
 </html> 
